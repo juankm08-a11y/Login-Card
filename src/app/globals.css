@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: 0 73% 48%;
+    --primary-foreground: 9 92% 71%;
+    --secondary: 9 86% 82;
+    --accent: 0 85% 60%;
+    --accent-foreground: 0 85% 100%;
+  }
+}
