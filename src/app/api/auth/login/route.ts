@@ -33,8 +33,12 @@ export async function POST(req: NextRequest) {
 
     const token = createJwtFor(user);
     return NextResponse.json({ token });
-  } catch (err: any) {
-    console.error("ERROR en /api/auth/login:", err);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.error("ERROR en /api/auth/login:", err.message);
+    } else {
+      console.error("ERROR desconocido en /api/auth/login:", err);
+    }
 
     return NextResponse.json(
       { error: "Error interno del servidor" },
