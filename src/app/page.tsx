@@ -27,19 +27,16 @@ export default function Home() {
   };
   return (
     <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-100 via-white to-blue-200 p-4">
-      <header className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl flex flex-col lg:flex-row overflow-hidden">
-        <section className="hidden lg:flex-col lg:justify-center lg:w-1/2 bg-blue-500 text-white p-10">
+      <header className="bg-blue-200 rounded-2xl shadow-2xl w-full max-w-6xl flex flex-col lg:flex-row overflow-hidden">
+        <section className="overflow-hidden lg:flex-col lg:justify-center lg:w-1/2 bg-blue-500 text-white p-10">
           <aside className="text-4xl font-bold mb-4">
             <div className="text-black text-4xl font-bold">Login Card</div>
           </aside>
-          <h1 className="text-4xl mb-4 font-bold text-black">Welcome!</h1>
-          <p className="text-lg opacity-90">
+          <h1 className="text-4xl text-black mb-4 font-bold ">Welcome!</h1>
+          <p className="text-lg text-black opacity-90">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <button className="bg-orange-200 hover:bg-orange-100 text-black rounded-full px-6 py-2 w-fit ">
-            Learn More
-          </button>
         </section>
         <section className="lg:w-1/2 p-8 lg:p-12 bg-opacity-30 backdrop-blur-smck rounded-t-xl lg:rounded-l-xl lg:rounded-tr-none flex flex-col justify-center">
           <h2 className="text-4xl font-semibold text-black text-center mb-8">
