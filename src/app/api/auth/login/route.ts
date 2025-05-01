@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
 export async function POST(req: NextRequest) {
   try {
     const { username, password } = await req.json();
-    const user: User | null = await authenticate(username, password);
+    const user = await authenticate(username, password);
     if (!user) {
       return NextResponse.json(
         { error: "Credenciales inválidas" },
