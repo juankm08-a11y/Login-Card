@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FaLock, FaUser } from "react-icons/fa";
 
 export default function Home() {
   const [username, setUsername] = useState("");
@@ -25,17 +26,14 @@ export default function Home() {
     alert("¡Correo enviado!");
   };
   return (
-    <main className="flex min-h-screen justify-center items-center p-4">
-      <header className="bg-orange-300 rounded-xl overflow-hidden shadow-2xl w-full max-w-5xl flex flex-col lg:flex-row">
-        <section className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
-          <aside className="mb-6">
-            <div className="text-black text-4xl font-bold">li</div>
+    <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-100 via-white to-blue-200 p-4">
+      <header className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl flex flex-col lg:flex-row overflow-hidden">
+        <section className="hidden lg:flex-col lg:justify-center lg:w-1/2 bg-blue-500 text-white p-10">
+          <aside className="text-4xl font-bold mb-4">
+            <div className="text-black text-4xl font-bold">Login Card</div>
           </aside>
-          <h1 className="text-4xl lg:text-5xl font-bold text-black mb-6">
-            Welcome!
-          </h1>
-          <div className="h-1 w-12 bg-orange-100 mb-6"></div>
-          <p className="text-black/70 mb-8">
+          <h1 className="text-4xl mb-4 font-bold text-black">Welcome!</h1>
+          <p className="text-lg opacity-90">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
@@ -45,38 +43,36 @@ export default function Home() {
         </section>
         <section className="lg:w-1/2 p-8 lg:p-12 bg-opacity-30 backdrop-blur-smck rounded-t-xl lg:rounded-l-xl lg:rounded-tr-none flex flex-col justify-center">
           <h2 className="text-4xl font-semibold text-black text-center mb-8">
-            Sign in
+            Login
           </h2>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div className="relative">
-              <label className="block text-sm font-medium text-black/70 mb-1">
-                User Name
-              </label>
+              <FaUser className="absolute-top-3.5 left-4 text-gray-400" />
               <input
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="pl-10 bg-black/10 border-white/20 text-black placeholder-black/50   rounded-full"
+                className="w-full pl-11 pr-4 oy-2.5 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
                 placeholder="Introduce your UserName"
               />
-              <label className="block text-sm font-medium text-black/70 mb-1">
-                Password
-              </label>
+            </div>
+            <div className="relative">
+              <FaLock className="absolute-top-3.5 left-4 text-gray-400" />
               <input
                 id="password"
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="pl-10 bg-black/10 border-white/20 text-black placeholder-black/50 rounded-full"
+                className="w-full pl-11 pr-4 oy-2.5 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
                 placeholder="........"
               />
-              <button
-                type="submit"
-                className="w-full py-2 rounded-full text-black font-medium cursor-pointer border-2"
-              >
-                Submit
-              </button>
             </div>
+            <button
+              type="submit"
+              className="w-full bg-blue hover:bg-blue-600 text-black font-semibold py-2.5 rounded-full transition duration-200 text-sm sm:text-base"
+            >
+              Submit
+            </button>
           </form>
         </section>
       </header>
