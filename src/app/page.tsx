@@ -7,9 +7,22 @@ export default function Home() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Login succesfull");
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+    if (!res.ok) {
+      console.error("Error en el server");
+      alert("Credenciales invalidas");
+      return;
+    }
+
+    const { token } = await res.json();
+    console.log("JWT", token);
+    alert("¡Correo enviado!");
   };
   return (
     <main className="flex min-h-screen justify-center items-center p-4">
@@ -36,10 +49,7 @@ export default function Home() {
           </h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="relative">
-              <label
-                htmlFor="username"
-                className="block text-sm font-medium text-black/70 mb-1"
-              >
+              <label className="block text-sm font-medium text-black/70 mb-1">
                 User Name
               </label>
               <input
@@ -49,10 +59,7 @@ export default function Home() {
                 className="pl-10 bg-black/10 border-white/20 text-black placeholder-black/50   rounded-full"
                 placeholder="Introduce your UserName"
               />
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-black/70 mb-1"
-              >
+              <label className="block text-sm font-medium text-black/70 mb-1">
                 Password
               </label>
               <input
