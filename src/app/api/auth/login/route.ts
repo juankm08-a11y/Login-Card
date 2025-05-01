@@ -1,7 +1,6 @@
-// app/api/auth/login/route.ts
 import { NextResponse, type NextRequest } from "next/server";
 import nodemailer from "nodemailer";
-import { authenticate, type User } from "@/lib/auth";
+import { authenticate } from "@/lib/auth";
 import { createJwtFor } from "@/lib/jwt";
 
 const transporter = nodemailer.createTransport({
@@ -15,8 +14,8 @@ const transporter = nodemailer.createTransport({
 
 export async function POST(req: NextRequest) {
   try {
-    const { username, password } = await req.json();
-    const user = await authenticate(username, password);
+    const { username, password: _password } = await req.json();
+    const user = await authenticate(username, _password);
     if (!user) {
       return NextResponse.json(
         { error: "Credenciales inválidas" },
